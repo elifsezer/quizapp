@@ -16,8 +16,6 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 import org.w3c.dom.Text
 
 class QuizActivity : AppCompatActivity() {
-
-
     var quizs = ArrayList<Quiz>() //Quiz tipinde quizs sınıfını oluşturduk.
     var toplamDogruSayisi: Int = 0 //doğru cevap sayısı
     var suankisoruindexi: Int = 0 //sınav sorularının indexi atamak için degisken ürettik.
@@ -26,6 +24,20 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
+        //42000 kısmı kaç ms olacağını gösteriyor. 42 sn anlamına gelmektedir.
+        object : CountDownTimer(42000, 1000) {
+            //süre bittiğinde mainactiviye yönlendirme yapıldı.
+            override fun onFinish() {
+                homeActivity()
+                tv_sure.setText("Bitti!")
+            }
+
+            //kalan süreyi gösterir.
+            override fun onTick(millisUntilFinished: Long) {
+                tv_sure.setText("Kalan Zaman : " + millisUntilFinished / 1000)
+            }
+
+        }.start()
         //ilk oncreate anında last question butonun gözükmemesi için kullanıldı.
         btn_last_question.visibility = View.INVISIBLE
         quizs.add(Quiz("Aşağıdaki sözcüklerden hangisi eş seslidir ?", "Yel", "Yüz", "Kapı", 2))
@@ -98,5 +110,10 @@ class QuizActivity : AppCompatActivity() {
 
     fun radiobutton_3(view: View) {
         cevaplari_goster(3)
+    }
+
+    private fun homeActivity() {
+        var intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
     }
 }
