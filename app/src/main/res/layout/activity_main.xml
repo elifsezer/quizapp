@@ -16,21 +16,36 @@
               android:textSize="35dp"
               android:layout_centerHorizontal="true"
               android:layout_marginTop="30dp"/>
+
+
+    <Button android:id="@+id/button_start_quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:textColor="#fff"
+            android:textSize="15dp"
+            android:text="Sınava Başla"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="300dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"/>
+
     <TextView
             android:id="@+id/text_view_sonuc_skor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sonuc: 0"
             android:textColor="@android:color/white"
-            android:layout_above="@id/button_start_quiz"
-            android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:layout_marginBottom="30dp"/>
-
-    <Button android:id="@+id/button_start_quiz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start Quiz"
-            android:layout_centerInParent="true"/>
+            android:layout_marginBottom="100dp"
+            android:layout_below="@id/button_start_quiz"
+            android:layout_centerHorizontal="true" android:layout_marginTop="30dp"/>
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp" app:srcCompat="@drawable/female" android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true" android:id="@+id/imageView" android:layout_marginTop="109dp"/>
 
 </RelativeLayout>

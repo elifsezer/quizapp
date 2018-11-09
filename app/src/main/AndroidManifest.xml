@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".QuizActivity">
         </activity>
+        <activity android:name=".icerikActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -112,7 +112,7 @@ class QuizActivity : AppCompatActivity() {
         cevaplari_goster(3)
     }
 
-    private fun homeActivity() {
+   private fun homeActivity() {
         var intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
     }

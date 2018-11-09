@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun starQuiz() {
-        var intent = Intent(applicationContext, QuizActivity::class.java)
+        var intent = Intent(applicationContext, icerikActivity::class.java)
         startActivity(intent)
     }
 }
