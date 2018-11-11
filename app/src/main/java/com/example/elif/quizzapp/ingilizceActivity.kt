@@ -5,29 +5,21 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_quiz.*
-import org.w3c.dom.Text
-import java.sql.Time
 import java.util.concurrent.TimeUnit
-import kotlin.system.measureTimeMillis
 
-class QuizActivity : AppCompatActivity() {
+class ingilizceActivity : AppCompatActivity() {
     var quizs = ArrayList<Quiz>() //Quiz tipinde quizs sınıfını oluşturduk.
     var toplamDogruSayisi: Int = 0 //doğru cevap sayısı
     var suankisoruindexi: Int = 0 //sınav sorularının indexi atamak için degisken ürettik.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
+        setContentView(R.layout.activity_ingilizce)
         //42000 kısmı kaç ms olacağını gösteriyor. 42 sn anlamına gelmektedir.
-         object : CountDownTimer(180000, 1000) {
+        object : CountDownTimer(180000, 1000) {
             //süre bittiğinde mainactiviye yönlendirme yapıldı.
             override fun onFinish() {
                 sonucGoster()
@@ -49,17 +41,20 @@ class QuizActivity : AppCompatActivity() {
 
         //ilk oncreate anında last question butonun gözükmemesi için kullanıldı.
         btn_last_question.visibility = View.INVISIBLE
-        quizs.add(Quiz("Dünyanın şekli aşağıdaki meyvelerden hangisine benzer?", "Portakal", "Kivi", "Ayva", 1))
-        quizs.add(Quiz("Aşağıda verilen ifadelerden hangisi doğrudur?", "Dünyanın büyük bölümü karalarla kaplıdır.", "Dünyanın büyük bölümü denizlerle kaplıdır.", "Dünyada yaşam sadece karadadır.", 2))
-        quizs.add(Quiz("Canlılar için gerekli gazların karışımı dünyanın hangi bölümünde yer alır?", "Su", "Kara", "Hava", 3))
-        quizs.add(Quiz("Canlılar için gerekli gazların karışımı dünyanın hangi bölümünde yer alır?", "Pisagor", "Aristo", "Kristof Kolomb", 1))
-        quizs.add(Quiz("Dünyamızın 4'te 3'ünü aşağıdakilerden hangisi oluşturur?", "Kara", "Su", "Hava", 2))
-        quizs.add(Quiz("Dünya' nın çevresini gemiyle dolaşarak Dünya' nın yuvarlak olduğunu ispatlayan kişi kimdir ?", "Aristo", "Pisagor", "Kristof Kolomb", 3))
-        quizs.add(Quiz("Yağmur, kar gibi olaylar dünyanın hangi tabakasında meydana gelir?", "Hava", "Su", "Kara", 1))
-        quizs.add(Quiz("Aşağıda verilen ifadelerden hangisi yanlıştır?", "Dünya katmanlardan oluşur.", "Küre şeklindedir.", "4'te 1'ini denizler oluşturur.", 3))
-        quizs.add(Quiz("Dünyamızı oluşturan tabakalardan en içte hangisi yer alır?", "Su tabakası", "Taş tabakası", "Hava tabakası", 3))
-        quizs.add(Quiz("Dünyamızı oluşturan tabakalardan en dışta hangisi yer alır?", "Taş tabakası", "Su tabakası", "Hava tabakası", 3))
-
+        quizs.add(Quiz("__ is my uncle.\n" +
+                "Cümlesinde boş bırakılan yere aşağıdakilerden hangisi getirilmelidir?", "I", "He", "She", 3))
+        quizs.add(Quiz("'' r t h o r b e '' harflerinden oluşan doğru kelime aşağıdakilerden hangisidir?", "betrhor", "brother", "brtoher",2))
+        quizs.add(Quiz("Sister\n" +
+                "Father\n" +
+                "Teacher\n" +
+                "Kelimelerinden hangisi diğerlerinden farklıdır?", "Father", "Sister", "Teacher", 3))
+        quizs.add(Quiz("Umut : __________\n" + "Murat : She is my sister.\n"  + "İfadesinde boş bırakılan yere aşağıdakilerden hangisi getirilmelidir?", "How old are you?", "Where are you?", "Who is she?", 3))
+        quizs.add(Quiz("Seda : ____ ?\n" +
+                "Selin : I' m eating a hamburger\n" +
+                "Boş bırakılan yere hangisi gelmelidir ?", "Who are you?", "What are you doing?", "What is your name?", 2))
+        quizs.add(Quiz("He ___ eating hamburger.\n" +
+                "Resme göre boşluğu tamamlayan ifade hangi seçenekte doğru verilmişti", "is", "am", "are", 1))
+        quizs.add(Quiz("'' surprised / I / feel '' Verilen kelimelerin doğru sıralanışı hangi seçenekte verilmiştir?  ", "I surprised feel.", "Feel I suprised.", "I feel suprised.", 3))
         sorulari_goster(quizs.get(suankisoruindexi))
     }
 
@@ -134,5 +129,4 @@ class QuizActivity : AppCompatActivity() {
         var intent = Intent(applicationContext, icerikActivity::class.java)
         startActivity(intent)
     }
-
 }

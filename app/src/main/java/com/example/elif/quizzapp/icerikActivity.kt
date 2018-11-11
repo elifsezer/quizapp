@@ -14,12 +14,22 @@ class icerikActivity : AppCompatActivity() {
         b1.setOnClickListener {
             QuizGit()
         }
+        b2.setOnClickListener {
+            ingilizceGit()
+        }
+
 
     }
 
     fun QuizGit()
     {
         var intent=Intent(applicationContext,QuizActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun ingilizceGit()
+    {
+        var intent=Intent(applicationContext,ingilizceActivity::class.java)
         startActivity(intent)
     }
 }
